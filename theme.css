@@ -26,9 +26,9 @@
 :root {
   /* This links your colors to the rainbow loop variable */
   /* Tweaked saturation and brightness so only the accents change color beautifully */
-  --VBaccent: var(--rb-hue) 100% 42%;
-  --VBaccent-muted: var(--rb-hue) 100% 32%;
-  --VBaccent-dimmest: var(--rb-hue) 100% 15%;
+  --VBaccent: var(--rb-hue) 100% 55%;
+  --VBaccent-muted: var(--rb-hue) 100% 42%;
+  --VBaccent-dimmest: var(--rb-hue) 100% 22%;
   --text-shadow-size: 1px; /*Default: 1px*/
 
   /* Triggers the 45-second slow color loop purely on the accent variable */
