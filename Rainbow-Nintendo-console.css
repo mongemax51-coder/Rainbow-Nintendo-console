@@ -1,54 +1,61 @@
 /**
- * @name Virtual Boy
- * @author Riddim_Glitch
+ * @name Rainbow Virtual Boy
+ * @author FrostNova
  * @version 1.5
- * @description A theme based on a failed Nintendo console with the same name.
- * @source https://github.com/Nexus-Themes/Virtual-Boy
+ * @description A theme based on a failed Nintendo console with smooth rainbow colors.
+ * @source https://github.io
  * @invite aYxpgkvdvR
  * @authorId 801089753038061669
  */
 
-@import url('https://Nexus-Themes.github.io/Virtual-Boy/virtual-boy.css');
+@import url('https//github.io');
 
 /* Comment out this line to disable message boxes */
-@import url("https://riddim-glitch.github.io/Virtual-Boy/MessageBoxes.css");
+@import url("https://github.io/MessageBoxes.css");
 
 /* Uncomment this line to use Right Alinged Selfmessages. Requires my helper plugin! Refer to the github repo for more information. */
 /* @import url("https://Riddim-GLiTCH.github.io/Virtual-Boy/selfmessages.css"); */
 
 :root {
-  /* Restore the theme's core stable base colors */
-  --VBaccent: 0 100% 50%;
-  --VBaccent-muted: 0 100% 39.2%;
-  --VBaccent-dimmest: 0 100% 17.6%;
+  /* Set up the base text shadow size */
   --text-shadow-size: 1px; /*Default: 1px*/
 }
 
-/* === LIGHTWEIGHT GPU-ACCELERATED TEXT RAINBOW === */
-[class*="contents_"], 
-[class*="name_"], 
-[class*="title_"], 
-[class*="container_"] > span, 
-[class*="text_"] {
-  animation: SmoothTextRainbow 25s linear infinite;
-  will-change: filter;
+/* === LIGHTWEIGHT VARIABLE-ONLY RAINBOW SPEED === */
+:root {
+  animation: VariableRainbowEffect 30s linear infinite;
 }
 
-/* === STRICT PROTECTION TO UN-TWEAK AVATARS & ICONS WITHIN TEXT CONTAINERS === */
-[class*="contents_"] [class*="avatar_"],
-[class*="contents_"] img,
-[class*="avatarHint_"],
-[class*="message_"] [class*="avatar_"],
-[class*="message_"] img:not([class*="emoji"]) {
-  animation: ReverseTextRainbow 25s linear infinite !important;
-}
-
-@keyframes SmoothTextRainbow {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
-}
-
-@keyframes ReverseTextRainbow {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(-360deg); }
+/* Smoothly transitions through the core spectrum steps without touch filters */
+@keyframes VariableRainbowEffect {
+  0%, 100% {
+    --VBaccent: 0 100% 50%;
+    --VBaccent-muted: 0 100% 39.2%;
+    --VBaccent-dimmest: 0 100% 17.6%;
+  }
+  16.6% {
+    --VBaccent: 60 100% 50%;
+    --VBaccent-muted: 60 100% 39.2%;
+    --VBaccent-dimmest: 60 100% 17.6%;
+  }
+  33.3% {
+    --VBaccent: 120 100% 50%;
+    --VBaccent-muted: 120 100% 39.2%;
+    --VBaccent-dimmest: 120 100% 17.6%;
+  }
+  50% {
+    --VBaccent: 180 100% 50%;
+    --VBaccent-muted: 180 100% 39.2%;
+    --VBaccent-dimmest: 180 100% 17.6%;
+  }
+  66.6% {
+    --VBaccent: 240 100% 50%;
+    --VBaccent-muted: 240 100% 39.2%;
+    --VBaccent-dimmest: 240 100% 17.6%;
+  }
+  83.3% {
+    --VBaccent: 300 100% 50%;
+    --VBaccent-muted: 300 100% 39.2%;
+    --VBaccent-dimmest: 300 100% 17.6%;
+  }
 }
