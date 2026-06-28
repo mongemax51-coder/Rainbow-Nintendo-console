@@ -1,8 +1,8 @@
 /**
- * @name Rainbow-Nintendo-console
- * @author FrostNovaVR
- * @version 1
- * @description A theme based on a failed Nintendo console with smooth rainbow colors
+ * @name Virtual Boy
+ * @author Riddim_Glitch
+ * @version 1.5
+ * @description A theme based on a failed Nintendo console with the same name.
  * @source https://github.com/Nexus-Themes/Virtual-Boy
  * @invite aYxpgkvdvR
  * @authorId 801089753038061669
@@ -16,32 +16,39 @@
 /* Uncomment this line to use Right Alinged Selfmessages. Requires my helper plugin! Refer to the github repo for more information. */
 /* @import url("https://Riddim-GLiTCH.github.io/Virtual-Boy/selfmessages.css"); */
 
-/* === FORCE DISCORD TO INTERPOLATE HSL VARIABLES SMOOTHLY === */
-@property --rainbow-hue {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: true;
-}
-
 :root {
-  /* Set up the base text shadow size */
+  /* Restore the theme's core stable base colors */
+  --VBaccent: 0 100% 50%;
+  --VBaccent-muted: 0 100% 39.2%;
+  --VBaccent-dimmest: 0 100% 17.6%;
   --text-shadow-size: 1px; /*Default: 1px*/
-
-  /* Attach the ultra-smooth hue variable to your original theme elements */
-  --VBaccent: var(--rainbow-hue) 100% 50%;
-  --VBaccent-muted: var(--rainbow-hue) 100% 39.2%;
-  --VBaccent-dimmest: var(--rainbow-hue) 100% 17.6%;
-
-  /* Run the slow fluid fade animation */
-  animation: SmoothGamingRainbow 20s linear infinite;
 }
 
-/* === PERFECT GRADIENT RAINBOW ROTATION === */
-@keyframes SmoothGamingRainbow {
-  0% {
-    --rainbow-hue: 0deg;
-  }
-  100% {
-    --rainbow-hue: 360deg;
-  }
+/* === LIGHTWEIGHT GPU-ACCELERATED TEXT RAINBOW === */
+[class*="contents_"], 
+[class*="name_"], 
+[class*="title_"], 
+[class*="container_"] > span, 
+[class*="text_"] {
+  animation: SmoothTextRainbow 25s linear infinite;
+  will-change: filter;
+}
+
+/* === STRICT PROTECTION TO UN-TWEAK AVATARS & ICONS WITHIN TEXT CONTAINERS === */
+[class*="contents_"] [class*="avatar_"],
+[class*="contents_"] img,
+[class*="avatarHint_"],
+[class*="message_"] [class*="avatar_"],
+[class*="message_"] img:not([class*="emoji"]) {
+  animation: ReverseTextRainbow 25s linear infinite !important;
+}
+
+@keyframes SmoothTextRainbow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes ReverseTextRainbow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(-360deg); }
 }
