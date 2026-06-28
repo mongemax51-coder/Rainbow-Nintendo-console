@@ -8,48 +8,40 @@
  * @authorId 1490193046971617321
  */
 
-@import url('https//github.io');
+@import url('https://Nexus-Themes.github.io/Virtual-Boy/virtual-boy.css');
+
+/* Comment out this line to disable message boxes */
+@import url("https://riddim-glitch.github.io/Virtual-Boy/MessageBoxes.css");
+
+/* Uncomment this line to use Right Aligned Selfmessages. Requires helper plugin! */
+/* @import url("https://Riddim-GLiTCH.github.io/Virtual-Boy/selfmessages.css"); */
+
+/* === INITIALIZE FLUID SPECTRUM PROPERTY === */
+@property --rainbow-deg {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: true;
+}
 
 :root {
   /* Set up the base text shadow size */
   --text-shadow-size: 1px; /*Default: 1px*/
+
+  /* Construct perfectly blendable HSL colors from the smooth running number */
+  --VBaccent: calc(var(--rainbow-deg)) 100% 50%;
+  --VBaccent-muted: calc(var(--rainbow-deg)) 100% 39.2%;
+  --VBaccent-dimmest: calc(var(--rainbow-deg)) 100% 17.6%;
+
+  /* Run the hardware accelerated fade loop */
+  animation: FluidRainbowFade 30s linear infinite;
 }
 
-/* === LIGHTWEIGHT VARIABLE-ONLY RAINBOW SPEED === */
-:root {
-  animation: VariableRainbowEffect 30s linear infinite;
-}
-
-/* Smoothly transitions through the core spectrum steps without touch filters */
-@keyframes VariableRainbowEffect {
-  0%, 100% {
-    --VBaccent: 0 100% 50%;
-    --VBaccent-muted: 0 100% 39.2%;
-    --VBaccent-dimmest: 0 100% 17.6%;
+/* === SEAMLESS SPECTRUM LOOP === */
+@keyframes FluidRainbowFade {
+  0% {
+    --rainbow-deg: 0;
   }
-  16.6% {
-    --VBaccent: 60 100% 50%;
-    --VBaccent-muted: 60 100% 39.2%;
-    --VBaccent-dimmest: 60 100% 17.6%;
-  }
-  33.3% {
-    --VBaccent: 120 100% 50%;
-    --VBaccent-muted: 120 100% 39.2%;
-    --VBaccent-dimmest: 120 100% 17.6%;
-  }
-  50% {
-    --VBaccent: 180 100% 50%;
-    --VBaccent-muted: 180 100% 39.2%;
-    --VBaccent-dimmest: 180 100% 17.6%;
-  }
-  66.6% {
-    --VBaccent: 240 100% 50%;
-    --VBaccent-muted: 240 100% 39.2%;
-    --VBaccent-dimmest: 240 100% 17.6%;
-  }
-  83.3% {
-    --VBaccent: 300 100% 50%;
-    --VBaccent-muted: 300 100% 39.2%;
-    --VBaccent-dimmest: 300 100% 17.6%;
+  100% {
+    --rainbow-deg: 360;
   }
 }
