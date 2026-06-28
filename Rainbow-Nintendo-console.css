@@ -1,11 +1,11 @@
 /**
  * @name Rainbow Virtual Boy
  * @author FrostNova
- * @version 1.5
+ * @version 1
  * @description A theme based on a failed Nintendo console with smooth rainbow colors.
  * @source https://github.io
- * @invite aYxpgkvdvR
- * @authorId 801089753038061669
+ * @invite VBYF6vMejM
+ * @authorId 1490193046971617321
  */
 
 @import url('https//github.io');
@@ -14,7 +14,7 @@
 @import url("https://github.io/MessageBoxes.css");
 
 /* Uncomment this line to use Right Alinged Selfmessages. Requires my helper plugin! Refer to the github repo for more information. */
-/* @import url("https://Riddim-GLiTCH.github.io/Virtual-Boy/selfmessages.css"); */
+/* @import url("https://github.io/selfmessages.css"); */
 
 :root {
   /* Set up the base text shadow size */
