@@ -10,12 +10,6 @@
 
 @import url('https//github.io');
 
-/* Comment out this line to disable message boxes */
-@import url("https://github.io/MessageBoxes.css");
-
-/* Uncomment this line to use Right Alinged Selfmessages. Requires my helper plugin! Refer to the github repo for more information. */
-/* @import url("https://github.io/selfmessages.css"); */
-
 :root {
   /* Set up the base text shadow size */
   --text-shadow-size: 1px; /*Default: 1px*/
