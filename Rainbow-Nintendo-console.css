@@ -1,41 +1,47 @@
 /**
- * @name Rainbow Nintendo Console
+ * @name Rainbow-Nintendo-console
  * @author FrostNovaVR
- * @version 0.1
- * @description A theme based on a failed Nintendo console with a slow, moderately rainbow cycle.
- * @source https://github.com
- * @invite https://discord.gg/c43qgwRXrk
- * @authorId 1490193046971617321
+ * @version 1
+ * @description A theme based on a failed Nintendo console with smooth rainbow colors
+ * @source https://github.com/Nexus-Themes/Virtual-Boy
+ * @invite aYxpgkvdvR
+ * @authorId 801089753038061669
  */
 
-@import url('https://github.io');
+@import url('https://Nexus-Themes.github.io/Virtual-Boy/virtual-boy.css');
 
-/* Comment out this line to disable messageboxes */
-@import url("https://github.io");
+/* Comment out this line to disable message boxes */
+@import url("https://riddim-glitch.github.io/Virtual-Boy/MessageBoxes.css");
 
-/* Uncomment this line to use Right Aligned Selfmessages */
-/* @import url("https://github.io"); */
+/* Uncomment this line to use Right Alinged Selfmessages. Requires my helper plugin! Refer to the github repo for more information. */
+/* @import url("https://Riddim-GLiTCH.github.io/Virtual-Boy/selfmessages.css"); */
 
-/* Register the dynamic variable so Discord knows how to animate it as a number */
-@property --rb-hue {
-  syntax: '<number>';
+/* === FORCE DISCORD TO INTERPOLATE HSL VARIABLES SMOOTHLY === */
+@property --rainbow-hue {
+  syntax: '<angle>';
+  initial-value: 0deg;
   inherits: true;
-  initial-value: 0;
 }
 
 :root {
-  /* This links your colors to the rainbow loop variable */
-  /* Tweaked saturation and brightness so only the accents change color beautifully */
-  --VBaccent: var(--rb-hue) 100% 55%;
-  --VBaccent-muted: var(--rb-hue) 100% 42%;
-  --VBaccent-dimmest: var(--rb-hue) 100% 22%;
+  /* Set up the base text shadow size */
   --text-shadow-size: 1px; /*Default: 1px*/
 
-  /* Triggers the 45-second slow color loop purely on the accent variable */
-  animation: accent-rainbow 45s linear infinite !important;
+  /* Attach the ultra-smooth hue variable to your original theme elements */
+  --VBaccent: var(--rainbow-hue) 100% 50%;
+  --VBaccent-muted: var(--rainbow-hue) 100% 39.2%;
+  --VBaccent-dimmest: var(--rainbow-hue) 100% 17.6%;
+
+  /* Run the slow fluid fade animation */
+  animation: SmoothGamingRainbow 20s linear infinite;
 }
 
-@keyframes accent-rainbow {
-  from { --rb-hue: 0; }
-  to { --rb-hue: 360; }
+/* === PERFECT GRADIENT RAINBOW ROTATION === */
+@keyframes SmoothGamingRainbow {
+  0% {
+    --rainbow-hue: 0deg;
+  }
+  100% {
+    --rainbow-hue: 360deg;
+  }
 }
